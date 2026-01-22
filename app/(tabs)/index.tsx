@@ -21,14 +21,14 @@ export default function ProductsScreen() {
       />
       <View style={styles.content}>
         <Text style={styles.title} numberOfLines={2}>
-          {item.name}
+          {item.title}
         </Text>
         <Text style={styles.description} numberOfLines={2}>
           {item.description}
         </Text>
         <View style={styles.footer}>
           <Text style={styles.price}>${item.price}</Text>
-          <Text style={styles.rating}>⭐ {item.rating}</Text>
+          <Text style={styles.rating}>{item.rating.rate} ⭐ {item.rating.count}</Text>
         </View>
       </View>
     </Pressable>

@@ -7,7 +7,7 @@ export default function ProductDetailScreen() {
   const { id } = useLocalSearchParams();
 
   // Récupérer le produit avec l'ID
-  const product = PRODUCTS.find((p) => p.id === id);
+  const product = PRODUCTS.find((p) => p.id === Number(id));
 
   if (!product) {
     return (
@@ -18,11 +18,11 @@ export default function ProductDetailScreen() {
   }
 
   const handleAddToCart = () => {
-    Alert.alert('Succès', `${product.name} ajouté au panier`);
+    Alert.alert('Succès', `${product.title} ajouté au panier`);
   };
 
   const handleBuyNow = () => {
-    Alert.alert('Achat', `Achat de ${product.name} pour $${product.price}`);
+    Alert.alert('Achat', `Achat de ${product.title} pour $${product.price}`);
   };
 
   return (
@@ -35,10 +35,10 @@ export default function ProductDetailScreen() {
 
       {/* Informations du produit */}
       <View style={styles.content}>
-        <Text style={styles.title}>{product.name}</Text>
+        <Text style={styles.title}>{product.title}</Text>
         
         <View style={styles.ratingContainer}>
-          <Text style={styles.rating}>⭐ {product.rating}</Text>
+          <Text style={styles.rating}>{product.rating.rate} ⭐ {product.rating.count}</Text>
           <Text style={styles.category}>{product.category}</Text>
         </View>
 
